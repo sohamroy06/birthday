@@ -1,283 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday, Netrokona!</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background: #000;
-            color: #fff;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Starry background */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px), radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
-            background-size: 50px 50px, 30px 30px;
-            background-position: 0 0, 25px 25px;
-            animation: move-stars 10s linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes move-stars {
-            from {
-                background-position: 0 0, 25px 25px;
-            }
-            to {
-                background-position: -50px -50px, -25px -25px;
-            }
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        h1 {
-            font-size: 4rem;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-            margin-top: 20px;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        p {
-            font-size: 1.5rem;
-            color: #ffe5e5;
-            margin: 20px;
-        }
-
-        .sweet-message {
-            margin: 20px auto;
-            padding: 15px;
-            max-width: 80%;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
-            font-size: 1.2rem;
-            color: #333;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: left;
-        }
-
-        .balloons {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .balloon {
-            position: absolute;
-            bottom: -150px;
-            width: 50px;
-            height: 70px;
-            background: radial-gradient(circle at bottom, #ff6f91, #ff1e56);
-            border-radius: 50%;
-            box-shadow: inset -10px -20px 30px rgba(0, 0, 0, 0.3);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .balloon:nth-child(odd) {
-            background: radial-gradient(circle at bottom, #6fffbf, #2c7f4f);
-        }
-
-        .balloon::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 150px;
-            background: #fff;
-            bottom: -150px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateX(0) translateY(0) scale(1);
-            }
-            50% {
-                transform: translateX(-20px) translateY(-200px) scale(1.1);
-            }
-            100% {
-                transform: translateX(20px) translateY(-400px) scale(1);
-            }
-        }
-
-        .balloon:nth-child(1) {
-            left: 10%;
-            animation-duration: 5s;
-        }
-        .balloon:nth-child(2) {
-            left: 30%;
-            animation-duration: 6s;
-            animation-delay: 1s;
-        }
-        .balloon:nth-child(3) {
-            left: 50%;
-            animation-duration: 7s;
-            animation-delay: 2s;
-        }
-        .balloon:nth-child(4) {
-            left: 70%;
-            animation-duration: 5.5s;
-            animation-delay: 1.5s;
-        }
-        .balloon:nth-child(5) {
-            left: 90%;
-            animation-duration: 6.5s;
-            animation-delay: 0.5s;
-        }
-
-        .photo-gallery {
-            display: flex;
-            justify-content: center;
-            overflow: hidden;
-            margin: 20px auto;
-            max-width: 90%;
-            position: relative;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .photo-gallery img {
-            width: 80%;
-            max-width: 140px;
-            height: auto;
-            border: 5px solid #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-            animation: slide 20s linear infinite;
-        }
-
-        @keyframes slide {
-            0% {
-                transform: translateX(100%);
-            }
-            50% {
-                transform: translateX(-50%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        footer {
-            position: static;
-            bottom: 40px;
-            width: 100%;
-            color: #fff;
-            font-size: 1rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
-        }
-
-        /* Media Queries for Mobile Devices */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            p {
-                font-size: 1.2rem;
-            }
-
-            .sweet-message {
-                max-width: 95%;
-                font-size: 1rem;
-            }
-
-            .photo-gallery img {
-                max-width: 120px;
-            }
-
-            .balloon {
-                width: 40px;
-                height: 60px;
-            }
-        }
-
-        /* Media Queries for Small Devices (Phones in Portrait Mode) */
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            p {
-                font-size: 1rem;
-            }
-
-            .sweet-message {
-                font-size: 0.9rem;
-                padding: 10px;
-            }
-
-            .photo-gallery img {
-                max-width: 100px;
-            }
-
-            .balloon {
-                width: 35px;
-                height: 50px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Happy Birthday, Netro! 🎉</h1>
-    <p>Wishing you a day filled with laughter, love, and endless joy. You're amazing!</p>
-
-    <div class="sweet-message">
-        Dear Netrokona,<br><br>
-        You have been my friend since childhood, and I cannot thank you enough for always being there for me. From helping me through tough times to sharing countless moments of joy and laughter, you have been a constant source of support and happiness. Though we now live far apart and meet less often due to college, our bond remains as strong as ever. Wishing you all the happiness in the world on your special day! 🎂❤️<br><br>
-        lovingly,<br>
-        Soham
+  <div class="background">
+    <div class="container">
+      <h1 class="title">Happy Birthday, My Love!</h1>
+      <p class="message">
+        To  <span id="sukannya">Sukannya</span>,<br>
+        Happy Birthday my babygirl , my peace , my everything . I will always love you and be with you no matter what ,  you are my one and only .
+      </p>
+      <div class="poem">
+        <h2 class="poem-title">A Poem for You</h2>
+        <p class="poem-content">
+            To the one who lights up my world,<br>
+            You are my dream, my laughter, my calm in every storm.<br>
+            Every moment with you feels like a treasure,<br>
+            A bond of endless love and joy beyond measure.<br>
+            Your smile is my sunshine, your love my greatest gift,<br>
+            With you, every day is a blessing, every heartache a myth.<br>
+            I adore you endlessly, my heart’s truest delight,<br>
+            You’re my forever, my everything, my shining light.
+        </p>
+      </div>
+      <div class="photo-gallery">
+        <div class="photo" style="background-image: url('suk1.jpg');"></div>
+        <div class="photo" style="background-image: url('suk2.jpg');"></div>
+        <div class="photo" style="background-image: url('suk3.jpg');"></div>
+      </div>
     </div>
-
-    <div class="photo-gallery">
-        <img src="1.jpg" alt="Memory 1">
-        <img src="2.jpg" alt="Memory 2">
-        <img src="3.jpg" alt="Memory 3">
-        <img src="4.jpg" alt="Memory 4">
-        <img src="5.jpg" alt="Memory 5">
-        <img src="6.jpg" alt="Memory 6">
-        <img src="7.jpg" alt="Memory 7">
-        <img src="8.jpg" alt="Memory 8">
-    </div>
-
-    <div class="balloons">
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-    </div>
-
-    <footer>
-        Made with ❤️ by Soham
-    </footer>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
-
